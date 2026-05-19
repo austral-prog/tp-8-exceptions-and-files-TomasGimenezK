@@ -34,4 +34,22 @@ def grades_stats(filename):
             "Cami": (10.0, 10.0, 10.0),
         }
     """
-    pass  # Reemplazar con tu implementación
+    diccionario = {}
+
+
+    with open(filename, "r") as archivo:
+        for line in archivo:
+            line = line.strip()
+            if line != "":
+                lista = line.strip().split(":")
+                if len(lista) == 2:
+                    notas = lista[1].strip().split(",")
+                    for i in range(len(notas)):
+                        notas[i] = float(notas[i])
+                    promedio = sum(notas) / len(notas)
+                    maximo = max(notas)
+                    minimo = min(notas)
+                    tupla = (promedio, maximo, minimo)
+                    diccionario[lista[0]] = tupla
+        
+    return diccionario
