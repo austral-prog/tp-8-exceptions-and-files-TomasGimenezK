@@ -26,13 +26,15 @@ def read_lines(filename):
     """
 
     lista = []
-    with open(filename, 'r') as file:
-        for line in file:
-            line = line.strip()
-            if line != "":
-                lista.append(line)
-        return lista
-
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                line = line.strip()
+                if line != "":
+                    lista.append(line)
+            return lista
+    except FileNotFoundError:
+        raise
 
 
 

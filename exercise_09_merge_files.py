@@ -28,8 +28,22 @@ def merge_files(file1, file2, output):
     Ejemplo:
         # a.txt contiene "hola\n", b.txt contiene "mundo\n"
         merge_files("a.txt", "b.txt", "out.txt")
-        # out.txt queda con:
+        # out.txt queda con:si
         # hola
         # mundo
     """
-    pass  # Reemplazar con tu implementación
+
+    concatenacion = ""
+
+    with open(file1, "r") as f:
+        for line in f:
+            numero1 = line
+            concatenacion += numero1
+
+    with open(file2, "r") as f:
+        for line in f:
+            numero2 = line
+            concatenacion += numero2
+
+    with open(output, "w") as f:
+        f.write(concatenacion)
